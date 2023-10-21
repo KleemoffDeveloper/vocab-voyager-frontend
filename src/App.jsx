@@ -1,8 +1,6 @@
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
-import Navbar from "./components/NavBar"
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,13 +16,21 @@ import Navbar from "./components/NavBar"
 
 // Initialize Firebase
 // const firebaseApp = initializeApp(firebaseConfig);
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Result from "./pages/Result";
+import Navbar from "./components/NavBar";
 
 function App() {
   return (
-    <div className='app'>
-      <Navbar/>
+    <div className="app">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/results" element={<Result />} />
+        </Routes>
+      </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
