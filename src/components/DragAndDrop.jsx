@@ -1,4 +1,13 @@
-export default function DragAndDrop() {
+const definitions = [
+    "something something yeah",
+    "another definition",
+    "group youp",
+    "drag onnnnnnnmeeeeee",
+  ];
+  
+  const words = ["Fish", "Gather", "Pronounce", "Loop"];
+
+export default function DragAndDrop({handleOnDrop, handleDragOver, handleOnDrag}) {
   return (
     <div className="drag-and-drop">
       <h1>Drag & drop the words to their matching definitions.</h1>

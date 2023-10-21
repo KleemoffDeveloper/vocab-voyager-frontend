@@ -5,15 +5,6 @@ import MultipleChoice from "../components/MultipleChoice";
 
 // this can either be multiple choice or drag and drop
 
-const definitions = [
-  "something something yeah",
-  "another definition",
-  "group youp",
-  "drag onnnnnnnmeeeeee",
-];
-
-const words = ["Fish", "Gather", "Pronounce", "Loop"];
-
 // Save the localStorage when you click the next question
 
 export default function Quiz({ m_quiz }) {
@@ -46,7 +37,7 @@ export default function Quiz({ m_quiz }) {
       {questionType === "multiple-choice" ? (
         <MultipleChoice />
       ) : (
-        <DragAndDrop />
+        <DragAndDrop handleDragOver={handleDragOver} handleOnDrag={handleOnDrag} handleOnDrop={handleOnDrop}/>
       )}
     </div>
   );
