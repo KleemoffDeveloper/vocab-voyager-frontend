@@ -1,7 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
-import Home from "./pages/Home";
-import Navbar from "./components/NavBar";
 import Result from "./pages/Result";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
@@ -65,6 +61,7 @@ function App() {
               }
             />
             <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
+            <Route path="/results" element={<Result/>} />
           </Routes>
         </main>
       </Router>
