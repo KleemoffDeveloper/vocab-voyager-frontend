@@ -1,0 +1,48 @@
+{
+  "categories": {
+    "frontend": {
+      "javascript": {
+        "words": [
+          {
+            "word": "Array",
+            "definition": "A data type that stores multiple elements in a single variable."
+          }
+        ]
+      },
+      "html": {
+        "words": [
+          {
+            "word": "Element",
+            "definition": "A component as apart of a markup file."
+          }
+        ]
+      },
+      "css": {
+        "words": [
+          {
+            "word": "Class",
+            "definition": ""
+          }
+        ]
+      }
+    },
+    "backend": {
+      "node": {
+        "words": [
+          {
+            "word": "",
+            "definition": ""
+          }
+        ]
+      },
+      "postgres": {
+        "words": [
+          {
+            "word": "",
+            "definition": ""
+          }
+        ]
+      }
+    }
+  }
+}
