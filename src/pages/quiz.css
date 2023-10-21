@@ -67,7 +67,6 @@
 
 .words .option {
     cursor: pointer;
-    -webkit-user-drag: element;
     background-color: rgb(221, 221, 221);
 }
 
