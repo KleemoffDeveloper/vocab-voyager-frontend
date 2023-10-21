@@ -6,7 +6,7 @@ function Home({ setTestType, setNumberOfWord }) {
 
   const handleRadioButton = (value) => {
     console.log(value)
-    setNumberOfWord("value")
+    setNumberOfWord(value)
   };
 
   const handleChoicedtype = (value) => {
@@ -38,16 +38,16 @@ function Home({ setTestType, setNumberOfWord }) {
                 <label htmlFor="5">5</label>
             </div>
             <div className="radio-selector">
-                <input type="radio" id="5" name="words" value="5" onChange={() => handleRadioButton("5")} />
+                <input type="radio" id="10" name="words" value="10" onChange={() => handleRadioButton("10")} />
                 <label htmlFor="10">10</label>
             </div>
             <div className="radio-selector">
-                <input type="radio" id="5" name="words" value="5" onChange={() => handleRadioButton("5")} />
-                <label htmlFor="5">5</label>
+                <input type="radio" id="15" name="words" value="15" onChange={() => handleRadioButton("15")} />
+                <label htmlFor="15">15</label>
             </div>
             <div className="radio-selector">
-                <input type="radio" id="5" name="words" value="5" onChange={() => handleRadioButton("5")} />
-                <label htmlFor="5">5</label>
+                <input type="radio" id="20" name="words" value="20" onChange={() => handleRadioButton("20")} />
+                <label htmlFor="20">20</label>
             </div>
         </div>
 

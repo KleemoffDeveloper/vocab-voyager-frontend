@@ -14,12 +14,16 @@ const words = ["Fish", "Gather", "Pronounce", "Loop"];
 
 // Save the localStorage when you click the next question
 
-export default function Quiz({ quiz }) {
+export default function Quiz({ m_quiz }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [questionType, setQuestionType] = useState("drag-drop"); // 'multiple-choice' || 'drag-drop'
   const [dragChoice, setDragChoice] = useState(null);
 
   const [widgets, setWidgets] = useState([]);
+
+  useEffect(() => {
+    m_quiz();
+  }, []);
 
   function handleOnDrag(e, widgetType) {
     e.dataTransfer.setData("widgetType", widgetType);
@@ -42,9 +46,9 @@ export default function Quiz({ quiz }) {
           <h1>Multiple Choice</h1>
           <h2>1. What is the definition of "word"?</h2>
           <div className="choices">
-            {[1, 2, 3, 4].map((choice) => {
+            {[1, 2, 3, 4].map((choice, i) => {
               return (
-                <div>
+                <div key={i}>
                   Answer Choice <input type="checkbox" />
                 </div>
               );
@@ -58,8 +62,9 @@ export default function Quiz({ quiz }) {
             <div className="banner definitions">
               <h2>Definitions</h2>
               <div className="layout">
-                {definitions.map((def) => (
+                {definitions.map((def, i) => (
                   <div
+                  key={i}
                     className="option"
                     onDrop={handleOnDrop}
                     onDragOver={handleDragOver}
@@ -74,11 +79,12 @@ export default function Quiz({ quiz }) {
             <div className="banner words">
               <h2>Words</h2>
               <div className="layout">
-                {words.map((word) => (
+                {words.map((word, i) => (
                   <div
+                  key={i}
                     className="option"
                     draggable
-                    onDragStart={(e) => handleOnDrag(e, 'option')}
+                    onDragStart={(e) => handleOnDrag(e, "option")}
                   >
                     {word}
                   </div>

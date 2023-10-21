@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
-import Home from "./pages/Home"
+import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
+import data from "./assets/data.json";
+import Quiz from "./pages/Quiz";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -24,24 +26,45 @@ import Navbar from "./components/NavBar";
 function App() {
   const [testType, setTestType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
-  
-  console.log("testType", testType)
-  console.log("numberOfWord", numberOfWord)
+  const [quiz, setQuiz] = useState();
+
+  function m_quiz() {
+    if (!testType || !numberOfWord) {
+      return;
+    }
+    let terms = data.terms;
+    let arr = []
+    while (arr.length < numberOfWord) {
+      arr.push(terms.splice(Math.floor(Math.random() * terms.length), 1));
+    }
+    setQuiz(arr);
+    console.log(quiz);
+  }
+
+  console.log("testType", testType);
+  console.log("numberOfWord", numberOfWord);
+  console.log(quiz);
   return (
-    <div className='app'>
+    <div className="app">
       <Router>
         <main>
-          <Navbar/>
+          <Navbar />
           <Routes>
-            <Route path="/" element={<Home
-              setTestType = {setTestType}
-              setNumberOfWord = {setNumberOfWord}
-            />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  setTestType={setTestType}
+                  setNumberOfWord={setNumberOfWord}
+                />
+              }
+            />
+            <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
           </Routes>
         </main>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
