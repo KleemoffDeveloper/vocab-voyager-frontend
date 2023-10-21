@@ -1,5 +1,5 @@
 .navbar-container{
-    background-color: #03045E;
+    background-color: #023e8a;
     height: 70px;
     display: flex;
     flex-direction: row;
@@ -29,7 +29,7 @@
 .navbar-searchbox{
     font-size: 1.2em;
     color: white ;
-    background-color: #33348a;
+    background-color: #1a5199;
     border: 0;
     border-radius: 15px 0px 0px 15px;
     padding-left: 3%;
@@ -41,7 +41,7 @@
 
 .navbar-search-button{
     display: flex;
-    background-color: #3d3fa7;
+    background-color: #2e5c99;
     justify-content: center;
     align-items: center;
     border: 0;
@@ -56,7 +56,7 @@
 .navbar-search-button:hover{
     transition: .2s;
     cursor: pointer;
-    background-color: #4e50ca;
+    background-color: #4074b7;
 }
 
 .navbar-account-buttons{
@@ -90,11 +90,11 @@
 }
 
 .navbar-button-log-in{
-    background-color: #5558ef;
+    background-color: #1554a6;
 }
 
 .navbar-button-sign-up{
-    background-color: #3b3caa;
+    background-color: #215597;
 }
 
 
