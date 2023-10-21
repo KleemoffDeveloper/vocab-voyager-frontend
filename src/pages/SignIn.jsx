@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { auth } from "../components/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -15,6 +18,8 @@ function SignIn() {
       .catch((error) => {
         console.log(error);
       });
+    alert("you've logged in!");
+    navigate(`/`);
   };
 
   return (

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { auth } from "../components/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -15,6 +18,8 @@ function SignUp() {
       .catch((error) => {
         console.log(error);
       });
+    alert("New account created!");
+    navigate(`/log-in`);
   };
 
   return (
