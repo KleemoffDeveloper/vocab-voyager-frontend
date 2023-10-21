@@ -12,6 +12,10 @@
     width: auto;
 }
 
+.navbar-logo:hover{
+    cursor: pointer;
+}
+
 .navbar-searchbox-container{
     flex-grow: 1;
     height: 60%;
@@ -58,7 +62,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 20%;
+    width: 25%;
     height: 100%;
 }
 

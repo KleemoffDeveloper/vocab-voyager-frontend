@@ -1,48 +1,556 @@
 {
-  "categories": {
-    "frontend": {
-      "javascript": {
-        "words": [
-          {
-            "word": "Array",
-            "definition": "A data type that stores multiple elements in a single variable."
-          }
-        ]
-      },
-      "html": {
-        "words": [
-          {
-            "word": "Element",
-            "definition": "A component as apart of a markup file."
-          }
-        ]
-      },
-      "css": {
-        "words": [
-          {
-            "word": "Class",
-            "definition": ""
-          }
-        ]
-      }
+  "terms": [
+{
+      "term": "HTML",
+      "description": "HyperText Markup Language used for creating web pages.",
+      "difficulty": 1,
+      "environment": "front end"
     },
-    "backend": {
-      "node": {
-        "words": [
-          {
-            "word": "",
-            "definition": ""
-          }
-        ]
-      },
-      "postgres": {
-        "words": [
-          {
-            "word": "",
-            "definition": ""
-          }
-        ]
-      }
+    {
+      "term": "CSS",
+      "description": "Cascading Style Sheets for styling HTML elements.",
+      "difficulty": 1,
+      "environment": "front end"
+    },
+    {
+      "term": "JavaScript",
+      "description": "A versatile scripting language used for web development.",
+      "difficulty": 1,
+      "environment": "front end"
+    },
+    {
+      "term": "React",
+      "description": "A JavaScript library for building user interfaces.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Vue.js",
+      "description": "A progressive JavaScript framework for building user interfaces.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Angular",
+      "description": "A TypeScript-based open-source framework for building web applications.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Node.js",
+      "description": "A JavaScript runtime for server-side development.",
+      "difficulty": 2,
+      "environment": "back end"
+    },
+    {
+      "term": "Express.js",
+      "description": "A minimal and flexible Node.js web application framework.",
+      "difficulty": 2,
+      "environment": "back end"
+    },
+    {
+      "term": "API",
+      "description": "Application Programming Interface for connecting software components.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Database",
+      "description": "A structured collection of data, typically used for storage and retrieval.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "SQL",
+      "description": "Structured Query Language for managing and querying databases.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "NoSQL",
+      "description": "A database approach that does not rely on a traditional relational database model.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Authentication",
+      "description": "The process of verifying user identity.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Authorization",
+      "description": "Granting or denying access to resources based on user permissions.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "HTTPS",
+      "description": "Hypertext Transfer Protocol Secure for secure communication over a computer network.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "REST",
+      "description": "Representational State Transfer, an architectural style for web services.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "JSON",
+      "description": "JavaScript Object Notation, a lightweight data interchange format.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "XML",
+      "description": "Extensible Markup Language, a markup language for structured documents.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Front End",
+      "description": "The client-side of web development focused on user interface and user experience.",
+      "difficulty": 1,
+      "environment": "front end"
+    },
+    {
+      "term": "Back End",
+      "description": "The server-side of web development responsible for data processing and storage.",
+      "difficulty": 1,
+      "environment": "back end"
+    },
+    {
+      "term": "Full Stack",
+      "description": "A developer who works on both the front end and back end of a web application.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "URL",
+      "description": "Uniform Resource Locator, a reference to a resource on the internet.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "DNS",
+      "description": "Domain Name System for translating domain names to IP addresses.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "HTTP",
+      "description": "Hypertext Transfer Protocol for transferring data over the web.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "Framework",
+      "description": "A pre-built structure or set of tools to streamline development.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Library",
+      "description": "A collection of pre-written code for common tasks.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "IDE",
+      "description": "Integrated Development Environment for writing and testing code.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Version Control",
+      "description": "A system to track changes in code and collaborate with others.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Git",
+      "description": "A widely used distributed version control system.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "GitHub",
+      "description": "A web-based platform for version control and collaboration.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Heroku",
+      "description": "A cloud platform for deploying, managing, and scaling apps.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Containerization",
+      "description": "Running applications and their dependencies in containers.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "CI/CD",
+      "description": "Continuous Integration and Continuous Deployment for automated software delivery.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "DevOps",
+      "description": "A set of practices that combines software development and IT operations.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Agile",
+      "description": "A project management approach for iterative and collaborative development.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Variable",
+      "description": "A named storage location for data that can be changed during program execution.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "String",
+      "description": "A data type used to represent text rather than numbers.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "Array",
+      "description": "A data structure that stores a collection of elements, typically of the same type.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "Function",
+      "description": "A reusable block of code that performs a specific task.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "Variable Scope",
+      "description": "The context in which a variable can be accessed.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "API Endpoint",
+      "description": "A specific URL where an API can be accessed.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Middleware",
+      "description": "Software that acts as an intermediary between different applications or components.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Session",
+      "description": "A period of interaction between a user and a computer program.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Server",
+      "description": "A computer or system that provides resources or services to other computers or clients.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Client",
+      "description": "A computer or software that requests services or resources from a server.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Frontend Framework",
+      "description": "A pre-built set of tools for frontend development.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Backend Framework",
+      "description": "A pre-built set of tools for backend development.",
+      "difficulty": 2,
+      "environment": "back end"
+    },
+    {
+      "term": "DOM",
+      "description": "Document Object Model, a programming interface for web documents.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Bug",
+      "description": "An error or defect in software that causes unexpected behavior.",
+      "difficulty": 1,
+      "environment": "full stack"
+    },
+    {
+      "term": "Debugging",
+      "description": "The process of finding and resolving bugs or issues in software.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "IDE",
+      "description": "Integrated Development Environment for writing and testing code.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Algorithm",
+      "description": "A step-by-step procedure or set of rules for solving a problem.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Data Structure",
+      "description": "A way of organizing and storing data to perform operations efficiently.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Deployment",
+      "description": "The process of making a software application available for use.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "User Interface (UI)",
+      "description": "The graphical layout of an application, including buttons, menus, and design elements.",
+      "difficulty": 1,
+      "environment": "front end"
+    },
+    {
+      "term": "User Experience (UX)",
+      "description": "The overall experience of a user when interacting with an application, website, or product.",
+      "difficulty": 1,
+      "environment": "front end"
+    },
+    {
+      "term": "Responsive Design",
+      "description": "Designing web pages to provide an optimal viewing and interaction experience across different devices and screen sizes.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Scalability",
+      "description": "The ability of a system or software to handle an increasing amount of work or data.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "React Component",
+      "description": "A reusable piece of user interface built with React.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Props",
+      "description": "Properties that are passed to a React component to configure its behavior.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React State",
+      "description": "An internal data store for a React component to manage its dynamic data.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Redux",
+      "description": "A state management library for React applications.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Hook",
+      "description": "Functions that allow functional components to manage state and side effects.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Router",
+      "description": "A library for handling navigation and routing in React applications.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Context",
+      "description": "A component's ability to share data with its child components without passing props manually.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Native",
+      "description": "A framework for building mobile applications using React.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Single Page Application (SPA)",
+      "description": "A web application that interacts with the user dynamically by rewriting the current page rather than loading entire new pages from the server.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Server-side Rendering (SSR)",
+      "description": "A technique where a web page is pre-rendered on the server and sent to the client as a fully-rendered page.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "Client-side Rendering (CSR)",
+      "description": "A technique where rendering is done in the client's browser, typically in single-page applications.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Virtual DOM",
+      "description": "A virtual representation of the actual DOM used for optimizing performance in React applications.",
+      "difficulty": 2,
+      "environment": "front end"
+    },
+    {
+      "term": "React Native Bridge",
+      "description": "A mechanism that allows communication between JavaScript and native code in React Native applications.",
+      "difficulty": 3,
+      "environment": "front end"
+    },
+    {
+      "term": "Express.js Route",
+      "description": "A route defined in Express.js to handle HTTP requests.",
+      "difficulty": 2,
+      "environment": "back end"
+    },
+    {
+      "term": "Middleware Function",
+      "description": "Functions in Express.js that can process requests, modify responses, or perform tasks before or after a route's handler function.",
+      "difficulty": 2,
+      "environment": "back end"
+    },
+    {
+      "term": "MERN Stack",
+      "description": "A full stack development framework that includes MongoDB, Express.js, React, and Node.js.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "JWT (JSON Web Tokens)",
+      "description": "A compact, self-contained means for securely transmitting information between parties as a JSON object.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "CORS (Cross-Origin Resource Sharing)",
+      "description": "A security feature implemented by web browsers to prevent web pages from making requests to a different domain.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Database Migration",
+      "description": "The process of managing changes to a database schema over time.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "CRUD Operations",
+      "description": "Create, Read, Update, and Delete operations for managing data in a database.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "API Documentation",
+      "description": "Detailed information on how to use and integrate with an API.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Proxy Server",
+      "description": "An intermediary server that acts as a gateway between a client and another server.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Database Index",
+      "description": "An optimized data structure that improves the speed of data retrieval operations on a database table.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Session Management",
+      "description": "The process of managing user sessions in a web application.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Docker",
+      "description": "A platform for developing, shipping, and running applications in containers.",
+      "difficulty": 2,
+      "environment": "full stack"
+    },
+    {
+      "term": "Microservices",
+      "description": "A software architectural style where an application is divided into smaller, loosely coupled services.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "GraphQL",
+      "description": "A query language for APIs and a runtime for executing those queries by specifying the data needed.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "API Gateway",
+      "description": "A server that acts as an API front-end, receiving API requests, enforcing throttling and security policies, passing requests to the back-end service, and passing back the response to the requester.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "ORM (Object-Relational Mapping)",
+      "description": "A programming technique for converting data between incompatible type systems in object-oriented programming languages.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "CI/CD Pipeline",
+      "description": "A set of automated processes that allow developers to deliver software changes more frequently and reliably.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Load Balancer",
+      "description": "A device or service that distributes network or application traffic across multiple servers.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Reverse Proxy",
+      "description": "A server that sits between client devices and a web server, forwarding client requests to the web server.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Serverless Architecture",
+      "description": "A cloud computing model where the cloud provider manages the infrastructure, and developers focus on writing code.",
+      "difficulty": 3,
+      "environment": "full stack"
+    },
+    {
+      "term": "Database Sharding",
+      "description": "A database partitioning technique to improve database performance and scalability.",
+      "difficulty": 3,
+      "environment": "full stack"
     }
-  }
+  ]
 }
