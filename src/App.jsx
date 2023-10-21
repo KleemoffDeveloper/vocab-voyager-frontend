@@ -46,6 +46,8 @@ function App() {
                 />
               }
             />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/sign-in" element={<SignIn />} />
           </Routes>
         </main>
       </Router>
