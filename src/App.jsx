@@ -1,3 +1,4 @@
+import Result from "./pages/Result";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./pages/Home";
@@ -62,6 +63,7 @@ function App() {
               }
             />
             <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
+            <Route path="/results" element={<Result/>} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/log-in" element={<SignIn />} />
           </Routes>
