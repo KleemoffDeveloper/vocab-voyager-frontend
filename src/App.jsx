@@ -3,6 +3,12 @@ import React, { useState } from "react";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
 import Result from "./pages/Result";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import Home from "./pages/Home";
+import Navbar from "./components/NavBar";
+import data from "./assets/data.json";
+import Quiz from "./pages/Quiz";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -25,8 +31,24 @@ import Result from "./pages/Result";
 function App() {
   const [testType, setTestType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
+  const [quiz, setQuiz] = useState();
 
+  function m_quiz() {
+    if (!testType || !numberOfWord) {
+      return;
+    }
+    let terms = data.terms;
+    let arr = []
+    while (arr.length < numberOfWord) {
+      arr.push(terms.splice(Math.floor(Math.random() * terms.length), 1));
+    }
+    setQuiz(arr);
+    console.log(quiz);
+  }
 
+  console.log("testType", testType);
+  console.log("numberOfWord", numberOfWord);
+  console.log(quiz);
   return (
     <div className="app">
       <Router>
@@ -42,7 +64,7 @@ function App() {
                 />
               }
             />
-            <Route path="results" element={<Result/>}/>
+            <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
           </Routes>
         </main>
       </Router>
