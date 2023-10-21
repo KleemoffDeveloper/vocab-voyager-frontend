@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
+import Result from "./pages/Result";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -25,8 +26,7 @@ function App() {
   const [testType, setTestType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
 
-  console.log("testType", testType);
-  console.log("numberOfWord", numberOfWord);
+
   return (
     <div className="app">
       <Router>
@@ -42,6 +42,7 @@ function App() {
                 />
               }
             />
+            <Route path="results" element={<Result/>}/>
           </Routes>
         </main>
       </Router>
