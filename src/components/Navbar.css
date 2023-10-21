@@ -17,7 +17,7 @@
 }
 
 .navbar-searchbox-container{
-    flex-grow: 1;
+    width: 50%;
     height: 60%;
     display: grid;
     grid-template-columns: 90% 10%;
@@ -27,7 +27,7 @@
 }
 
 .navbar-searchbox{
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: white ;
     background-color: #33348a;
     border: 0;
@@ -39,22 +39,24 @@
     color: #8283c1;
 }
 
-.navbar-filter{
+.navbar-search-button{
     display: flex;
-    background-color: #4345a3;
+    background-color: #3d3fa7;
+    justify-content: center;
+    align-items: center;
     border: 0;
     width: 100%;
     min-width: 100px;
     border-radius: 0px 15px 15px 0px;
-    padding-left: 10px;
     color: white ;
-    font-size: 1.5em;
-    
+    font-size: 1.2em;
+    transition: .2s;
 }
 
-.navbar-filter:hover{
+.navbar-search-button:hover{
+    transition: .2s;
     cursor: pointer;
-    opacity: .8;
+    background-color: #4e50ca;
 }
 
 .navbar-account-buttons{
@@ -68,24 +70,73 @@
 
 .navbar-button-log-in,
 .navbar-button-sign-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white ;
-    font-size: 1.5em;
+    font-size: 1.2em;
     width: 45%;
     height: 70%;
     border: 0;
     border-radius: 15px;
+    transition: .2s;
 }
 
 .navbar-button-log-in:hover,
 .navbar-button-sign-up:hover{
     cursor: pointer;
     opacity: .8;
+    transition: .2s;
 }
 
 .navbar-button-log-in{
-    background-color: #2e3095;
+    background-color: #5558ef;
 }
 
 .navbar-button-sign-up{
-    background-color: #4547b8;
+    background-color: #3b3caa;
 }
+
+
+@media screen and (max-width: 1200px){
+
+    .navbar-account-buttons{
+        width: 20%;
+        font-size: .9em;
+        text-wrap: nowrap;
+        margin-right: 10px;
+    }
+
+    .navbar-searchbox-container{
+        grid-template-columns: 80% 20%;
+    }
+
+    .navbar-logo{
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 767px){
+
+    .navbar-account-buttons{
+        font-size: .7em;
+        text-wrap: nowrap;
+        margin-right: 10px;
+        height: 80%;
+    }
+
+    .navbar-searchbox-container{
+        height: 55%;
+        grid-template-columns: 100%;
+    }
+
+    .navbar-search-button{
+        display: none;
+    }
+    
+    .navbar-searchbox{
+        border-radius: 15px;
+    }
+
+}
+
