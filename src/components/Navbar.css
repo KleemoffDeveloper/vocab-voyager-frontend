@@ -27,7 +27,7 @@
 }
 
 .navbar-searchbox{
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: white ;
     background-color: #33348a;
     border: 0;
@@ -39,22 +39,24 @@
     color: #8283c1;
 }
 
-.navbar-filter{
+.navbar-search-button{
     display: flex;
-    background-color: #4345a3;
+    background-color: #3d3fa7;
+    justify-content: center;
+    align-items: center;
     border: 0;
     width: 100%;
     min-width: 100px;
     border-radius: 0px 15px 15px 0px;
-    padding-left: 10px;
     color: white ;
-    font-size: 1.5em;
-    
+    font-size: 1.2em;
+    transition: .2s;
 }
 
-.navbar-filter:hover{
+.navbar-search-button:hover{
+    transition: .2s;
     cursor: pointer;
-    opacity: .8;
+    background-color: #4e50ca;
 }
 
 .navbar-account-buttons{
@@ -69,23 +71,25 @@
 .navbar-button-log-in,
 .navbar-button-sign-up{
     color: white ;
-    font-size: 1.5em;
+    font-size: 1.2em;
     width: 45%;
     height: 70%;
     border: 0;
     border-radius: 15px;
+    transition: .2s;
 }
 
 .navbar-button-log-in:hover,
 .navbar-button-sign-up:hover{
     cursor: pointer;
     opacity: .8;
+    transition: .2s;
 }
 
 .navbar-button-log-in{
-    background-color: #2e3095;
+    background-color: #5558ef;
 }
 
 .navbar-button-sign-up{
-    background-color: #4547b8;
+    background-color: #3b3caa;
 }
