@@ -49,6 +49,14 @@ function Home({ setTestType, setNumberOfWord }) {
                 <input type="radio" id="20" name="words" value="20" onChange={() => handleRadioButton("20")} />
                 <label htmlFor="20">20</label>
             </div>
+            <div className="radio-selector">
+                <input type="radio" id="25" name="words" value="25" onChange={() => handleRadioButton("25")} />
+                <label htmlFor="25">25</label>
+            </div>
+            <div className="radio-selector">
+                <input type="radio" id="30" name="words" value="30" onChange={() => handleRadioButton("30")} />
+                <label htmlFor="30">30</label>
+            </div>
         </div>
 
         <Link to="./quiz">
