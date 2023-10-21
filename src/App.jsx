@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
-import Navbar from "./components/NavBar"
+import Navbar from "./components/NavBar";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,10 +23,12 @@ import Navbar from "./components/NavBar"
 
 function App() {
   return (
-    <div className='app'>
-      <Navbar/>
+    <div className="app">
+      <Navbar />
+      <SignIn />
+      <SignUp />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
