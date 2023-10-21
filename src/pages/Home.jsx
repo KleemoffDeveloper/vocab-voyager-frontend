@@ -24,13 +24,13 @@ function Home({ setTestType, setNumberOfWord }) {
     <div className="home">
         <h2>Quiz Type</h2>
 
-        <div>
+        <div className="button">
             <button onClick={() => handleChoicedtype("multipleChoice")}>Multiple choice</button>
             <button onClick={() => handleChoicedtype("dragAndDrop")}>Drag & Drop</button>
-            <button onClick={() => handleChoicedtype("both")}>Both</button>
+            {/* <button onClick={() => handleChoicedtype("both")}>Both</button> */}
         </div>
 
-        <h3>How many words?</h3>
+        <h2>How many words?</h2>
 
         <div className="radio-selector-container">
             <div className="radio-selector">

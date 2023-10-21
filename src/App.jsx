@@ -35,7 +35,7 @@ function App() {
     let terms = data.terms;
     let arr = []
     while (arr.length < numberOfWord) {
-      arr.push(terms.splice(Math.floor(Math.random() * terms.length), 1));
+      arr.push(...terms.splice(Math.floor(Math.random() * terms.length), 1));
     }
     setQuiz(arr);
     console.log(quiz);
