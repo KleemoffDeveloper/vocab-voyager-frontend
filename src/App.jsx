@@ -1,3 +1,7 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import Home from "./pages/Home";
+import Navbar from "./components/NavBar";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -16,18 +20,30 @@
 
 // Initialize Firebase
 // const firebaseApp = initializeApp(firebaseConfig);
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Result from "./pages/Result";
-import Navbar from "./components/NavBar";
 
 function App() {
+  const [testType, setTestType] = useState("");
+  const [numberOfWord, setNumberOfWord] = useState();
+
+  console.log("testType", testType);
+  console.log("numberOfWord", numberOfWord);
   return (
     <div className="app">
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/results" element={<Result />} />
-        </Routes>
+        <main>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  setTestType={setTestType}
+                  setNumberOfWord={setNumberOfWord}
+                />
+              }
+            />
+          </Routes>
+        </main>
       </Router>
     </div>
   );
