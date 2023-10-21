@@ -5,6 +5,7 @@ import './Navbar.css'
 export default function Navbar() {
 
   const [searchData, setSearchData] = useState('')
+  
 
   function navbarClickHandle(e, location){
     e.preventDefault()
