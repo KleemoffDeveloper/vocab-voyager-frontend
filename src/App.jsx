@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
 import data from "./assets/data.json";
 import Quiz from "./pages/Quiz";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -35,7 +37,7 @@ function App() {
     let terms = data.terms;
     let arr = []
     while (arr.length < numberOfWord) {
-      arr.push(terms.splice(Math.floor(Math.random() * terms.length), 1));
+      arr.push(...terms.splice(Math.floor(Math.random() * terms.length), 1));
     }
     setQuiz(arr);
     console.log(quiz);
@@ -60,6 +62,8 @@ function App() {
               }
             />
             <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/log-in" element={<SignIn />} />
           </Routes>
         </main>
       </Router>
