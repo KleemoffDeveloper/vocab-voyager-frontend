@@ -1,0 +1,87 @@
+.navbar-container{
+    background-color: #03045E;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-logo{
+    max-width: 180px;
+    width: auto;
+}
+
+.navbar-searchbox-container{
+    flex-grow: 1;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    border-radius: 15px;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.navbar-searchbox{
+    font-size: 1.3em;
+    color: white ;
+    background-color: #33348a;
+    border: 0;
+    border-radius: 15px 0px 0px 15px;
+    padding-left: 3%;
+}
+
+.navbar-searchbox::placeholder {
+    color: #8283c1;
+}
+
+.navbar-filter{
+    display: flex;
+    background-color: #4345a3;
+    border: 0;
+    width: 100%;
+    min-width: 100px;
+    border-radius: 0px 15px 15px 0px;
+    padding-left: 10px;
+    color: white ;
+    font-size: 1.5em;
+    
+}
+
+.navbar-filter:hover{
+    cursor: pointer;
+    opacity: .8;
+}
+
+.navbar-account-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.navbar-button-log-in,
+.navbar-button-sign-up{
+    color: white ;
+    font-size: 1.5em;
+    width: 45%;
+    height: 70%;
+    border: 0;
+    border-radius: 15px;
+}
+
+.navbar-button-log-in:hover,
+.navbar-button-sign-up:hover{
+    cursor: pointer;
+    opacity: .8;
+}
+
+.navbar-button-log-in{
+    background-color: #2e3095;
+}
+
+.navbar-button-sign-up{
+    background-color: #4547b8;
+}
