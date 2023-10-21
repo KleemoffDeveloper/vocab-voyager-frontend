@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./pages/Home"
+import Navbar from "./components/NavBar";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
-
-import Navbar from "./components/NavBar"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,6 +31,7 @@ function App() {
     <div className='app'>
       <Router>
         <main>
+          <Navbar/>
           <Routes>
             <Route path="/" element={<Home
               setTestType = {setTestType}
