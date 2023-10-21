@@ -2,7 +2,7 @@ import './navbar.css'
 
 export default function Navbar() {
 
-  
+
   function navbarClickHandle(e, location){
     e.preventDefault()
     window.location.pathname = location
