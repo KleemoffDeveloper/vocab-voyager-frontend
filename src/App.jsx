@@ -1,9 +1,12 @@
+import Result from "./pages/Result";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
 import data from "./assets/data.json";
 import Quiz from "./pages/Quiz";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -64,6 +67,9 @@ function App() {
               quiz={quiz} 
               questionType={questionType}
               />} />
+            <Route path="/results" element={<Result/>} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/log-in" element={<SignIn />} />
           </Routes>
         </main>
       </Router>
