@@ -1,22 +1,22 @@
 .navbar-container{
-    background-color: #023e8a;
+    background-color: #12213d;
     height: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 1px 0px 5px black;
 }
 
-.navbar-logo{
-    max-width: 180px;
-    width: auto;
+.navbar-container__logo{
+    width: 25%;
 }
 
-.navbar-logo:hover{
+.navbar-container__logo:hover{
     cursor: pointer;
 }
 
-.navbar-searchbox-container{
+.navbar-container__searchbox{
     width: 50%;
     height: 60%;
     display: grid;
@@ -26,40 +26,40 @@
     margin-left: 3%;
 }
 
-.navbar-searchbox{
+.navbar-container__searchbox__input{
     font-size: 1.2em;
     color: white ;
-    background-color: #1a5199;
+    background-color: #1b2f54;
     border: 0;
     border-radius: 15px 0px 0px 15px;
     padding-left: 3%;
 }
 
-.navbar-searchbox::placeholder {
-    color: #8283c1;
+.navbar-container__searchbox__input::placeholder {
+    color: #47608f;
 }
 
-.navbar-search-button{
+.navbar-container__searchbox__submit-button{
     display: flex;
-    background-color: #2e5c99;
+    background-color: #29416f;
     justify-content: center;
     align-items: center;
     border: 0;
     width: 100%;
     min-width: 100px;
     border-radius: 0px 15px 15px 0px;
-    color: white ;
+    color: #a9b8d4 ;
     font-size: 1.2em;
     transition: .2s;
 }
 
-.navbar-search-button:hover{
+.navbar-container__searchbox__submit-button:hover{
     transition: .2s;
     cursor: pointer;
     background-color: #4074b7;
 }
 
-.navbar-account-buttons{
+.navbar-container__account-buttons{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -90,11 +90,13 @@
 }
 
 .navbar-button-log-in{
-    background-color: #1554a6;
+    background-color: #203964;
 }
 
 .navbar-button-sign-up{
-    background-color: #215597;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #405985;
+    color: #a9b8d4 ;
 }
 
 

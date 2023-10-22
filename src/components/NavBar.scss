@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800&display=swap');
+
+$deep-color: #12213d;
+$deep-contrast: #1b2f54;
+$medium-contrast: #294069;
+$high-contrast: #405883;
+
+$font-dark: #7b8ca9; 
+$left-radius: 10px 0px 0px 10px;
+$right-radius: 0px 10px 10px 0px;
+$full-radius: 10px;
+%font-template{
+    font-size: 15px;
+    font-family: 'Poppins', normal;
+    text-wrap: nowrap;
+}
+
+
+.navbar-container{
+    @extend %font-template;
+    display: flex;
+    height: 70px;
+    background-color: $deep-color;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 1px 0px 5px black;
+    &__logo{
+        width: 15%;
+        margin: 0% 2%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__searchbox{
+        width: 50%;
+        height: 60%;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        margin-right: 5%;
+
+        &__input{
+            background-color: $deep-contrast;
+            border: 0;
+            border-radius: $left-radius;
+            padding-left: 3%;
+        }
+
+        &__submit-button{
+            @extend %font-template;
+            background-color: $medium-contrast;
+            border: 0;
+            border-radius: $right-radius;
+            color: $font-dark ;
+            transition: .2s;
+
+            &:hover{
+                transition: .2s;
+                cursor: pointer;
+                background-color: $high-contrast;
+            }
+        }
+    }
+
+    &__account-buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 25%;
+        height: 100%;
+        &__login,
+        &__signup{
+            background-color: $deep-contrast;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white ;
+            font-size: 1.2em;
+            width: 45%;
+            height: 70%;
+            border: 0;
+            border-radius: 15px;
+            transition: .2s;
+            &:hover{
+                background-color: $high-contrast;
+                cursor: pointer;
+                transition: .2s;
+            }
+        }
+    }
+}
