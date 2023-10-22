@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useAuth } from "../pages/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "./Firebase";
+
 import "./NavBar.css";
 
 export default function Navbar() {
   const [searchData, setSearchData] = useState("");
+  const { authUser } = useAuth();
 
   function navbarClickHandle(e, location) {
     e.preventDefault();
@@ -13,6 +18,13 @@ export default function Navbar() {
     e.preventDefault();
     console.log(searchData);
   }
+  const handleLogOutClick = () => {
+    signOut(auth)
+      .then(() => {
+        alert(`log out successful!`);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="navbar-container">
@@ -41,22 +53,29 @@ export default function Navbar() {
         />
       </form>
       <div className="navbar-container__account-buttons">
-        <button
-          className="navbar-container__account-buttons__login"
-          onClick={
-            (e) => navbarClickHandle(e, "/sign-up") /*TODO: Change function */
-          }
-        >
-          Sign Up
-        </button>
-        <button
-          className="navbar-container__account-buttons__signup"
-          onClick={
-            (e) => navbarClickHandle(e, "/log-in") /*TODO: Change function */
-          }
-        >
-          Log In
-        </button>
+        {authUser ? (
+          <button
+            className="navbar-container__account-buttons__logout"
+            onClick={handleLogOutClick}
+          >
+            Log Out
+          </button>
+        ) : (
+          <button
+            className="navbar-container__account-buttons__login"
+            onClick={(e) => navbarClickHandle(e, "/sign-up")}
+          >
+            Sign Up
+          </button>
+        )}
+        {authUser ? null : (
+          <button
+            className="navbar-container__account-buttons__signup"
+            onClick={(e) => navbarClickHandle(e, "/log-in")}
+          >
+            Log In
+          </button>
+        )}
       </div>
     </div>
   );

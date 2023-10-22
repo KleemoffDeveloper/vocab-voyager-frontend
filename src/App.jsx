@@ -7,6 +7,8 @@ import data from "./assets/data.json";
 import Quiz from "./pages/Quiz";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import { AuthProvider } from "./pages/AuthContext";
+
 // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
 
@@ -32,13 +34,12 @@ function App() {
   const [quiz, setQuiz] = useState();
   const [userResponses, setUserResponses] = useState([]);
 
-
   function m_quiz() {
     if (!questionType || !numberOfWord) {
       return;
     }
     let terms = data.terms;
-    let arr = []
+    let arr = [];
     while (arr.length < numberOfWord) {
       arr.push(...terms.splice(Math.floor(Math.random() * terms.length), 1));
     }
@@ -51,32 +52,39 @@ function App() {
   // console.log(quiz);
   return (
     <div className="app">
-      <Router>
-        <main>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                setQuestionType={setQuestionType}
-                  setNumberOfWord={setNumberOfWord}
-                />
-              }
-            />
-            <Route path="/quiz" 
-              element={<Quiz m_quiz={m_quiz} 
-              quiz={quiz} 
-              questionType={questionType}
-              userResponses={userResponses}
-              setUserResponses={setUserResponses}
-              />} />
-            <Route path="/results" element={<Result/>} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/log-in" element={<SignIn />} />
-          </Routes>
-        </main>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <main>
+            <Navbar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    setQuestionType={setQuestionType}
+                    setNumberOfWord={setNumberOfWord}
+                  />
+                }
+              />
+              <Route
+                path="/quiz"
+                element={
+                  <Quiz
+                    m_quiz={m_quiz}
+                    quiz={quiz}
+                    questionType={questionType}
+                    userResponses={userResponses}
+                    setUserResponses={setUserResponses}
+                  />
+                }
+              />
+              <Route path="/results" element={<Result />} />
+              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/log-in" element={<SignIn />} />
+            </Routes>
+          </main>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
