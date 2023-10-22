@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import data from '../assets/data.json'
 import { useParams } from 'react-router-dom'
-import '../pages/SearchResults.scss'
+import '../pages/SearchResults.css'
 
 export default function SearchResults() {
 

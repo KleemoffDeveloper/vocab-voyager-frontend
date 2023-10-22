@@ -5,9 +5,6 @@ import { useAuth } from "../pages/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "./Firebase";
 
-import "./NavBar.css";
-import { useNavigate } from "react-router-dom";
-
 export default function Navbar() {
   const navigate = useNavigate();
   const [searchData, setSearchData] = useState("");
