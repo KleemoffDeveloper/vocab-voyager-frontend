@@ -70,6 +70,7 @@ function App() {
               questionType={questionType}
               userResponses={userResponses}
               setUserResponses={setUserResponses}
+              numberOfWord={numberOfWord}
               />} />
             <Route path="/results" element={<Result userResponses={userResponses}/>} />
             <Route path="/sign-up" element={<SignUp />} />

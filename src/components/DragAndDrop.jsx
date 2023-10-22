@@ -1,36 +1,46 @@
 import { useEffect, useState } from "react";
 import "./DragAndDrop.css";
+import allData from "../assets/data.json";
 
-export default function DragAndDrop({ terms }) {
+export default function DragAndDrop({
+  numberOfWord,
+  userResponses,
+  setUserResponses,
+}) {
   const [definitions, setDefinitions] = useState([]); // This contains the data for results
   const [randomizedTerms, setRandomizedTerms] = useState([]);
+  const [quiz, setQuiz] = useState([]);
 
-  function randomizeTerms() {
-    const arr = [...terms];
+  function generateQuiz() {
+    let terms = allData.terms;
+    let arr = [];
+    while (arr.length < numberOfWord) {
+      arr.push(...terms.splice(Math.floor(Math.random() * terms.length), 1));
+    }
+    setQuiz(arr);
+
+    const x_arr = [...arr];
     let randomTerms = [];
-    for (let i = 0; i < terms.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       randomTerms.push(
-        ...arr.splice(Math.floor(Math.random() * arr.length), 1)
+        ...x_arr.splice(Math.floor(Math.random() * x_arr.length), 1)
       );
     }
     randomTerms = randomTerms.map((_term) => _term.term);
     setRandomizedTerms(randomTerms);
-  }
 
-  function setDefinitionQueries() {
-    const arr = terms.map((term) => {
+    const y_arr = arr.map((term) => {
       return {
         definition: term.description,
         correctAnswer: term.term,
         answer: null,
       };
     });
-    setDefinitions(arr);
+    setDefinitions(y_arr);
   }
 
   useEffect(() => {
-    randomizeTerms();
-    setDefinitionQueries();
+    generateQuiz();
   }, []);
 
   function removeAnswer(definitionObj) {
@@ -58,7 +68,7 @@ export default function DragAndDrop({ terms }) {
     e.preventDefault();
   }
 
-  return (
+  return quiz ? (
     <div className="drag-and-drop">
       <h1>Drag & drop the term to its matching definition.</h1>
       <button
@@ -67,12 +77,28 @@ export default function DragAndDrop({ terms }) {
             ? { opacity: "100%", boxShadow: "1px 1px 10px cyan" }
             : { opacity: "50%", cursor: "default", border: "none" }
         }
+        onClick={() => {
+          // correctAnswer
+          // isCorrect
+          // question
+          // userAnswer
+          const responses = [];
+          definitions.forEach((definition) => {
+            responses.push({
+              correctAnswer: definition.correctAnswer,
+              isCorrect: definition.correctAnswer === definition.answer,
+              question: definition.definition,
+              userAnswer: definition.answer,
+            });
+            setUserResponses(responses);
+          });
+        }}
       >
         Finish Quiz
       </button>
       <div className="main-container">
         <div className="terms-container">
-          <h2>Terms — {`${randomizedTerms.length} / ${terms.length}`}</h2>
+          <h2>Terms — {`${randomizedTerms.length} / ${quiz.length}`}</h2>
           <div className="terms">
             {randomizedTerms.map((term) => (
               <div
@@ -123,5 +149,5 @@ export default function DragAndDrop({ terms }) {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 }
