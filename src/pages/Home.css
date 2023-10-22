@@ -2,7 +2,7 @@
 .home{
     /* margin: 200px auto; */
     width: 100%;
-    height: 600px;
+    /* height: 600px; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -10,8 +10,7 @@
     text-align: center;
 }
 .radio-selector-container{
-    display: flex;
-    
+    display: flex;   
 }
 .radio-selector {
     width: 20px;

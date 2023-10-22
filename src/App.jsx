@@ -27,12 +27,12 @@ import SignIn from "./pages/SignIn";
 // const firebaseApp = initializeApp(firebaseConfig);
 
 function App() {
-  const [testType, setTestType] = useState("");
+  const [questionType, setQuestionType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
   const [quiz, setQuiz] = useState();
 
   function m_quiz() {
-    if (!testType || !numberOfWord) {
+    if (!questionType || !numberOfWord) {
       return;
     }
     let terms = data.terms;
@@ -44,9 +44,9 @@ function App() {
     console.log(quiz);
   }
 
-  console.log("testType", testType);
-  console.log("numberOfWord", numberOfWord);
-  console.log(quiz);
+  // console.log("setQuestionType", setQuestionType);
+  // console.log("numberOfWord", numberOfWord);
+  // console.log(quiz);
   return (
     <div className="app">
       <Router>
@@ -57,12 +57,16 @@ function App() {
               path="/"
               element={
                 <Home
-                  setTestType={setTestType}
+                setQuestionType={setQuestionType}
                   setNumberOfWord={setNumberOfWord}
                 />
               }
             />
-            <Route path="/quiz" element={<Quiz m_quiz={m_quiz} />} />
+            <Route path="/quiz" 
+              element={<Quiz m_quiz={m_quiz} 
+              quiz={quiz} 
+              questionType={questionType}
+              />} />
             <Route path="/results" element={<Result/>} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/log-in" element={<SignIn />} />
