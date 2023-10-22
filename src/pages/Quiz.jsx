@@ -7,9 +7,8 @@ import MultipleChoice from "../components/MultipleChoice";
 
 // Save the localStorage when you click the next question
 
-export default function Quiz({ m_quiz, quiz, questionType, userResponses, setUserResponses }) {
+export default function Quiz({ m_quiz, quiz, numberOfWord, questionType, userResponses, setUserResponses }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
-  // const [questionType, setQuestionType] = useState("drag-drop"); // 'multiple-choice' || 'drag-drop'
   const [dragChoice, setDragChoice] = useState(null);
 
   const [widgets, setWidgets] = useState([]);
@@ -18,19 +17,19 @@ export default function Quiz({ m_quiz, quiz, questionType, userResponses, setUse
     m_quiz();
   }, []);
 
-  function handleOnDrag(e, widgetType) {
-    e.dataTransfer.setData("widgetType", widgetType);
-  }
+  // function handleOnDrag(e, widgetType) {
+  //   e.dataTransfer.setData("widgetType", widgetType);
+  // }
 
-  function handleOnDrop(e) {
-    const widgetType = e.dataTransfer.getData("widgetType");
-    console.log(widgets);
-    setWidgets([...widgets, widgetType]);
-  }
+  // function handleOnDrop(e) {
+  //   const widgetType = e.dataTransfer.getData("widgetType");
+  //   console.log(widgets);
+  //   setWidgets([...widgets, widgetType]);
+  // }
 
-  function handleDragOver(e) {
-    e.preventDefault();
-  }
+  // function handleDragOver(e) {
+  //   e.preventDefault();
+  // }
 
   return (
     <div className="quiz">
@@ -40,7 +39,10 @@ export default function Quiz({ m_quiz, quiz, questionType, userResponses, setUse
         setUserResponses ={setUserResponses}
         />
       ) : (
-        <DragAndDrop handleDragOver={handleDragOver} handleOnDrag={handleOnDrag} handleOnDrop={handleOnDrop}/>
+        <DragAndDrop quiz={quiz}
+        userResponses = {userResponses}
+        setUserResponses ={setUserResponses}
+        numberOfWord={numberOfWord}/>
       )}
     </div>
   );
