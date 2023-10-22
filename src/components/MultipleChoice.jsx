@@ -6,7 +6,7 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
   const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [userResponses, setUserResponses] = useState([]);
   const [choices, setChoices] = useState([]);
-  const [finished, setFinished] = useState(false);
+  // const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     if (quiz && quiz[currentQuestion]) {
@@ -23,20 +23,24 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
 
     setChoices(allChoices);
 
-    const userResponse = {
-      question: currentQuestionData.description,
-      userAnswer: "", 
-      correctAnswer: currentCorrectAnswer,
-      isCorrect: false,
+
+    if(!userResponses[currentQuestion]){
+      const userResponse = {
+        question: currentQuestionData.description,
+        userAnswer: "", 
+        correctAnswer: currentCorrectAnswer,
+        isCorrect: false,
+      };
+
+      
+      setUserResponses((prevResponses) => {
+        const updatedResponses = [...prevResponses];
+        updatedResponses[currentQuestion] = userResponse;
+        return updatedResponses;
+      });
     };
-
-    setUserResponses((prevResponses) => {
-      const updatedResponses = [...prevResponses];
-      updatedResponses[currentQuestion] = userResponse;
-      return updatedResponses;
-    });
-  };
-
+  }
+    
   const getIncorrectAnswers = (correctAnswer) => {
     const otherQuestions = quiz.filter((question, index) => index !== currentQuestion);
     const incorrectAnswers = [];
@@ -70,10 +74,6 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
     }
   };
 
-  const handleFinish = () => {
-    <Link to="./results"></Link>
-  };
-
   const handlePreviousQuestion = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
@@ -81,11 +81,12 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
   };
 
   const handleChoiceChange = (event) => {
+
     const selectedChoice = event.target.value;
 
     if (userResponses[currentQuestion]) {
       const isCorrect = selectedChoice === quiz[currentQuestion].term;
-      console.log(userResponses[currentQuestion].correctAnswer)
+      // console.log(userResponses[currentQuestion].correctAnswer)
       setUserResponses((prevResponses) => {
         const updatedResponses = [...prevResponses];
         updatedResponses[currentQuestion].userAnswer = selectedChoice;
@@ -99,17 +100,10 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
     return <div>No quiz data available.</div>;
   }
 
-  // if (finished) {
-  //   return (
-  //     <Link to="./result"></Link>
-  //   );
-  // }
-
-  console.log("currentQuestion", currentQuestion)
+  // console.log("currentQuestion", currentQuestion)
   console.log("userResponses", userResponses)  
-  console.log("choices", choices)  
-  console.log("finished", )  
-
+  // console.log("choices", choices)  
+  // console.log("finished", )  
   return (
     <div className="multipleChoice-container">
       <h1>Multiple Choice</h1>
@@ -124,7 +118,7 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
                     type="radio"
                     name="answer"
                     value={choice}
-                    checked={userResponses[currentQuestion] && userResponses[currentQuestion].userAnswer === choice}
+                    checked={!!userResponses[currentQuestion] && userResponses[currentQuestion].userAnswer === choice ? "checked" : ""}
                     onChange={handleChoiceChange}
                   />
                   {choice}
@@ -141,7 +135,7 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
         {currentQuestion > 0 ? (
           <button onClick={handlePreviousQuestion}>Previous</button>
         ) : (
-          <button>!</button>
+          ""
         )}
 
         {currentQuestion < quiz.length - 1 ? (
