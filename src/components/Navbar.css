@@ -7,16 +7,16 @@
     align-items: center;
 }
 
-.navbar-logo{
+.navbar-container__logo{
     max-width: 180px;
     width: auto;
 }
 
-.navbar-logo:hover{
+.navbar-container__logo:hover{
     cursor: pointer;
 }
 
-.navbar-searchbox-container{
+.navbar-container__searchbox{
     width: 50%;
     height: 60%;
     display: grid;
@@ -26,7 +26,7 @@
     margin-left: 3%;
 }
 
-.navbar-searchbox{
+.navbar-container__searchbox__input{
     font-size: 1.2em;
     color: white ;
     background-color: #1a5199;
@@ -39,7 +39,7 @@
     color: #8283c1;
 }
 
-.navbar-search-button{
+.navbar-container__searchbox__submit-button{
     display: flex;
     background-color: #2e5c99;
     justify-content: center;
@@ -53,13 +53,13 @@
     transition: .2s;
 }
 
-.navbar-search-button:hover{
+.navbar-container__searchbox__submit-button:hover{
     transition: .2s;
     cursor: pointer;
     background-color: #4074b7;
 }
 
-.navbar-account-buttons{
+.navbar-container__account-buttons{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -68,8 +68,9 @@
     height: 100%;
 }
 
-.navbar-button-log-in,
-.navbar-button-sign-up{
+.navbar-container__account-buttons__logout,
+.navbar-container__account-buttons__login,
+.navbar-container__account-buttons__signup{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,18 +83,19 @@
     transition: .2s;
 }
 
-.navbar-button-log-in:hover,
-.navbar-button-sign-up:hover{
+.navbar-container__account-buttons__logout:hover,
+.navbar-container__account-buttons__login:hover,
+.navbar-container__account-buttons__signup{
     cursor: pointer;
     opacity: .8;
     transition: .2s;
 }
 
-.navbar-button-log-in{
+.navbar-container__account-buttons__login{
     background-color: #1554a6;
 }
 
-.navbar-button-sign-up{
+.navbar-container__account-buttons__signup{
     background-color: #215597;
 }
 
