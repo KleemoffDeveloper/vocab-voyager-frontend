@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react'
+import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../pages/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "./Firebase";
@@ -10,15 +12,16 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [searchData, setSearchData] = useState("");
   const { authUser } = useAuth();
+  const [searchChange, setSearchChange] = useState('')
 
-  function navbarClickHandle(e, location) {
-    e.preventDefault();
-    navigate(location);
+  function navbarClickHandle(e, location){
+    e.preventDefault()
+    navigate(location)
   }
 
-  function handleSearch(e) {
-    e.preventDefault();
-    console.log(searchData);
+  function handleSearch(e){
+    e.preventDefault()
+    navigate(`searchResults/?term=${searchData}`)
   }
   const handleLogOutClick = () => {
     signOut(auth)
@@ -27,6 +30,7 @@ export default function Navbar() {
       })
       .catch((error) => console.log(error));
   };
+
 
   return (
     <div className="navbar-container">

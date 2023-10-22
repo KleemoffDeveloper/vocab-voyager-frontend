@@ -7,6 +7,7 @@ import data from "./assets/data.json";
 import Quiz from "./pages/Quiz";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import SearchResults from "./pages/SearchResults";
 import { AuthProvider } from "./pages/AuthContext";
 
 // Import the functions you need from the SDKs you need
@@ -85,6 +86,7 @@ function App() {
               />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/log-in" element={<SignIn />} />
+              <Route path="/searchResults" element={<SearchResults />} />
             </Routes>
           </main>
         </Router>
