@@ -1,0 +1,105 @@
+.drag-and-drop {
+  display: grid;
+  place-items: center;
+  padding-bottom: 150px;
+}
+
+.main-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
+  width: 60vw;
+  gap: 40px;
+}
+
+.terms-container {
+  display: grid;
+  justify-content: center;
+  height: max-content;
+  position: fixed;
+  top: 20vh;
+  right: 2vw;
+}
+
+.terms {
+  display: grid;
+  grid-auto-flow: row;
+  place-items: center;
+  width: 250px;
+  height: 65vh;
+  overflow-y: scroll;
+  gap: 15px;
+  background-color: rgba(245, 245, 245, 0.2);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 16px;
+}
+
+.term {
+  width: 60%;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background-color: aliceblue;
+  color: black;
+  padding: 15px;
+  border-radius: 16px;
+  margin-left: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.term:hover {
+  background-color: #90e0ef;
+}
+
+.definitions {
+  margin-left: 30px;
+  display: grid;
+  gap: 15px;
+}
+
+.definition {
+  min-height: 100px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.definition-slot {
+  display: grid;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.1);
+  text-align: left;
+  padding-left: 15px;
+}
+
+.answer-slot {
+  width: 200px;
+  display: grid;
+  grid-template-rows: 1fr 30px;
+  place-items: center;
+}
+
+.answer-slot button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.answer-slot button:hover {
+    background-color: #00B4D8;
+    transition: ease-in-out 0.15s;
+}
+
+.answer-slot,
+.definition-slot {
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 700px) {
+  .term {
+    font-size: 10px;
+  }
+}

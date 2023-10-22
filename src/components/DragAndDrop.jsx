@@ -1,45 +1,122 @@
-const definitions = [
-    "something something yeah",
-    "another definition",
-    "group youp",
-    "drag onnnnnnnmeeeeee",
-  ];
-  
-  const words = ["Fish", "Gather", "Pronounce", "Loop"];
+import { useEffect, useState } from "react";
+import "./DragAndDrop.css";
 
-export default function DragAndDrop({handleOnDrop, handleDragOver, handleOnDrag}) {
+export default function DragAndDrop({ terms }) {
+  const [definitions, setDefinitions] = useState([]); // This contains the data for results
+  const [randomizedTerms, setRandomizedTerms] = useState([]);
+
+  function randomizeTerms() {
+    const arr = [...terms];
+    let randomTerms = [];
+    for (let i = 0; i < terms.length; i++) {
+      randomTerms.push(
+        ...arr.splice(Math.floor(Math.random() * arr.length), 1)
+      );
+    }
+    randomTerms = randomTerms.map((_term) => _term.term);
+    setRandomizedTerms(randomTerms);
+  }
+
+  function setDefinitionQueries() {
+    const arr = terms.map((term) => {
+      return {
+        definition: term.description,
+        correctAnswer: term.term,
+        answer: null,
+      };
+    });
+    setDefinitions(arr);
+  }
+
+  useEffect(() => {
+    randomizeTerms();
+    setDefinitionQueries();
+  }, []);
+
+  function removeAnswer(definitionObj) {
+    setRandomizedTerms([...randomizedTerms, definitionObj.answer]);
+    definitionObj.answer = null;
+  }
+
+  function handleOnDrag(e, data) {
+    e.dataTransfer.setData("term", data);
+  }
+
+  function handleOnDrop(e, definitionObj) {
+    if (definitionObj.answer) {
+      return;
+    }
+    const data = e.dataTransfer.getData("term");
+    const arr = [...randomizedTerms];
+
+    definitionObj.answer = data;
+    arr.splice(arr.indexOf(data), 1);
+    setRandomizedTerms(arr);
+  }
+
+  function handleDragOver(e) {
+    e.preventDefault();
+  }
+
   return (
     <div className="drag-and-drop">
-      <h1>Drag & drop the words to their matching definitions.</h1>
-      <div className="layout">
-        <div className="banner definitions">
-          <h2>Definitions</h2>
-          <div className="layout">
-            {definitions.map((def, i) => (
+      <h1>Drag & drop the term to its matching definition.</h1>
+      <button
+        style={
+          randomizedTerms.length === 0
+            ? { opacity: "100%", boxShadow: "1px 1px 10px cyan" }
+            : { opacity: "50%", cursor: "default", border: "none" }
+        }
+      >
+        Finish Quiz
+      </button>
+      <div className="main-container">
+        <div className="terms-container">
+          <h2>Terms — {`${randomizedTerms.length} / ${terms.length}`}</h2>
+          <div className="terms">
+            {randomizedTerms.map((term) => (
               <div
-                key={i}
-                className="option"
-                onDrop={handleOnDrop}
-                onDragOver={handleDragOver}
+                className="term"
+                draggable
+                onDragStart={(e) => handleOnDrag(e, term)}
               >
-                {def}
-                <div className="choice"></div>
+                {term}
               </div>
             ))}
           </div>
         </div>
-
-        <div className="banner words">
-          <h2>Words</h2>
-          <div className="layout">
-            {words.map((word, i) => (
+        <div className="definitions-container">
+          <h2>Definitions</h2>
+          <div className="definitions">
+            {definitions.map((definition) => (
               <div
-                key={i}
-                className="option"
-                draggable
-                onDragStart={(e) => handleOnDrag(e, "option")}
+                className="definition"
+                onDrop={(e) => handleOnDrop(e, definition)}
+                onDragOver={handleDragOver}
               >
-                {word}
+                <div
+                  className="answer-slot"
+                  style={
+                    definition.answer
+                      ? { backgroundColor: "white", color: "black" }
+                      : null
+                  }
+                >
+                  {definition.answer}
+                  {definition.answer ? (
+                    <button
+                      className="remove-button"
+                      onClick={() => {
+                        removeAnswer(definition);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  ) : null}
+                </div>
+                <div className="definition-slot">
+                  <h3>{definition.definition}</h3>
+                </div>
               </div>
             ))}
           </div>
