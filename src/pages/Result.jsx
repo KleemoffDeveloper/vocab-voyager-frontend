@@ -1,40 +1,90 @@
 import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Result.css"
 
-function Result() {
-    const navigate = useNavigate();
-    const [quizData, setQuizData] = useState([]);
-    const [correctAnswers, setCorrectAnswers] = useState(0);
+function Result({ userResponses, handleChoicedtype }) {
+    const correctAnswers = userResponses.filter(response => response.isCorrect).length
+    const totalQuestions = userResponses.length;
+    const [showScrollButton, setShowScrollButton] = useState(false);
+
+    function handleAnswerColor(answer) {
+        if (answer === true) {
+            return "green"
+        } 
+        return "red";
+    }
 
     useEffect(() => {
-      // Retrieve quiz data from localStorage
-      const storedData = JSON.parse(localStorage.getItem("quizData"));
-      if (storedData) {
-        setQuizData(storedData);
-        // Calculate the number of correct answers
-        const correct = storedData.filter(
-          (item) => item.userAnswer === item.correctAnswer
-        );
-        setCorrectAnswers(correct.length);
-      }
+      const handleScroll = () => {
+        if (window.scrollY > 300) {
+          setShowScrollButton(true);
+        } else {
+          setShowScrollButton(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
     }, []);
 
-
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+    
     return (
       <div className="results">
         <h1>Quiz Results</h1>
         <div>
-          <p>Congratulations you answered 0 of 15 questions correctly.</p>
+          {correctAnswers > 0 ? (
+            <p>
+              Congratulations! You answered {correctAnswers} of {totalQuestions}{" "}
+              questions correctly.
+            </p>
+          ) : (
+            <p>Sorry, you did not answer any questions correctly.</p>
+          )}
           <div>
-            <ol>
-              <li>Question Answer</li>
-            </ol>
-            <footer>
-              Try again or attempt a different type of quiz
-              below.
-            </footer>
+            <div className="questionsContainer">
+              <table className="questionsTable">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userResponses.map((response, index) => (
+                    <tr
+                      key={index}
+                      style={{ color: handleAnswerColor(response.isCorrect) }}
+                    >
+                      <td>{index + 1}</td>
+                      <td>{response.question}</td>
+                      <td>{response.userAnswer}</td>
+                      <td style={{ color: "green" }}>
+                        {response.correctAnswer}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <Link to="/">
+              <button>TRY AGAIN</button>
+            </Link>
           </div>
+          {showScrollButton && (
+            <button className="scroll-top-button" onClick={scrollToTop}>
+              &#8593;
+            </button>
+          )}
         </div>
       </div>
     );
