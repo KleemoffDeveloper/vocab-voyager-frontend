@@ -20,7 +20,7 @@ function SignUp() {
       .then((userCredentials) => {
         console.log(userCredentials);
         alert("New account created!");
-        navigate(`/log-in`);
+        navigate(`/`);
       })
       .catch((error) => {
         console.log(error);
