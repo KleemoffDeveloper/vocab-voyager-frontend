@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./DragAndDrop.css";
 import allData from "../assets/data.json";
+import { Link } from "react-router-dom";
 
 export default function DragAndDrop({
   numberOfWord,
@@ -71,31 +72,32 @@ export default function DragAndDrop({
   return quiz ? (
     <div className="drag-and-drop">
       <h1>Drag & drop the term to its matching definition.</h1>
-      <button
-        style={
-          randomizedTerms.length === 0
-            ? { opacity: "100%", boxShadow: "1px 1px 10px cyan" }
-            : { opacity: "50%", cursor: "default", border: "none" }
-        }
-        onClick={() => {
-          // correctAnswer
-          // isCorrect
-          // question
-          // userAnswer
-          const responses = [];
-          definitions.forEach((definition) => {
-            responses.push({
-              correctAnswer: definition.correctAnswer,
-              isCorrect: definition.correctAnswer === definition.answer,
-              question: definition.definition,
-              userAnswer: definition.answer,
+      <Link to="/results">
+        <button
+          style={
+            randomizedTerms.length === 0
+              ? { opacity: "100%", boxShadow: "1px 1px 10px cyan" }
+              : { opacity: "50%", cursor: "default", border: "none" }
+          }
+          onClick={() => {
+            if (randomizedTerms.length > 0) {
+              return;
+            }
+            const responses = [];
+            definitions.forEach((definition) => {
+              responses.push({
+                correctAnswer: definition.correctAnswer,
+                isCorrect: definition.correctAnswer === definition.answer,
+                question: definition.definition,
+                userAnswer: definition.answer,
+              });
+              setUserResponses(responses);
             });
-            setUserResponses(responses);
-          });
-        }}
-      >
-        Finish Quiz
-      </button>
+          }}
+        >
+          Finish Quiz
+        </button>
+      </Link>
       <div className="main-container">
         <div className="terms-container">
           <h2>Terms — {`${randomizedTerms.length} / ${quiz.length}`}</h2>
