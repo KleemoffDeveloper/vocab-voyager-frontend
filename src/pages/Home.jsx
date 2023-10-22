@@ -2,21 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"
 
-function Home({ setTestType, setNumberOfWord }) {
+function Home({ setQuestionType, setNumberOfWord }) {
 
   const handleRadioButton = (value) => {
-    console.log(value)
+    // console.log(value)
     setNumberOfWord(value)
   };
 
   const handleChoicedtype = (value) => {
-    console.log(value);
+    // console.log(value);
     if (value === "multipleChoice") {
-      setTestType("multipleChoice");
+      setQuestionType("multipleChoice");
     } else if (value === "dragAndDrop") {
-      setTestType("dragAndDrop");
+      setQuestionType("dragAndDrop");
     } else if (value === "both") {
-      setTestType("both");
+      setQuestionType("both");
     }
   };
 
