@@ -30,6 +30,8 @@ function App() {
   const [questionType, setQuestionType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
   const [quiz, setQuiz] = useState();
+  const [userResponses, setUserResponses] = useState([]);
+
 
   function m_quiz() {
     if (!questionType || !numberOfWord) {
@@ -66,6 +68,8 @@ function App() {
               element={<Quiz m_quiz={m_quiz} 
               quiz={quiz} 
               questionType={questionType}
+              userResponses={userResponses}
+              setUserResponses={setUserResponses}
               />} />
             <Route path="/results" element={<Result/>} />
             <Route path="/sign-up" element={<SignUp />} />

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./MultipleChoice.css";
 
-export default function MultipleChoice({ quiz }) {
+export default function MultipleChoice({ quiz, userResponses, setUserResponses }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [userResponses, setUserResponses] = useState([]);
+  // const [userResponses, setUserResponses] = useState([]);
   const [choices, setChoices] = useState([]);
   const [finished, setFinished] = useState(false);
 
@@ -83,8 +84,8 @@ export default function MultipleChoice({ quiz }) {
     const selectedChoice = event.target.value;
 
     if (userResponses[currentQuestion]) {
-      const isCorrect = selectedChoice === userResponses[currentQuestion].correctAnswer;
-
+      const isCorrect = selectedChoice === quiz[currentQuestion].term;
+      console.log(userResponses[currentQuestion].correctAnswer)
       setUserResponses((prevResponses) => {
         const updatedResponses = [...prevResponses];
         updatedResponses[currentQuestion].userAnswer = selectedChoice;
@@ -100,18 +101,14 @@ export default function MultipleChoice({ quiz }) {
 
   if (finished) {
     return (
-      <div className="multipleChoice-container">
-        <h1>Quiz Finished</h1>
-        {userResponses.map((response, index) => (
-          <div key={index}>
-            <p>Question: {response.question}</p>
-            <p>Your Answer: {response.userAnswer}</p>
-            <p>Is Correct: {response.isCorrect ? "Yes" : "No"}</p>
-          </div>
-        ))}
-      </div>
+      <Link to="./result"></Link>
     );
   }
+
+  console.log("currentQuestion", currentQuestion)
+  console.log("userResponses", userResponses)  
+  console.log("choices", choices)  
+  console.log("finished", )  
 
   return (
     <div className="multipleChoice-container">
@@ -139,11 +136,18 @@ export default function MultipleChoice({ quiz }) {
       </div>
 
       <div className="previous-next-button">
-        <button onClick={handlePreviousQuestion}>Previous</button>
+        {/* <button onClick={handlePreviousQuestion}>Previous</button> */}
+        
+        {currentQuestion > 0 ? (
+          <button onClick={handlePreviousQuestion}>Previous</button>
+        ) : (
+          <button>!</button>
+        )}
+
         {currentQuestion < quiz.length - 1 ? (
           <button onClick={handleNextQuestion}>Next</button>
         ) : (
-          <button onClick={handleFinish}>Finish</button>
+          <button onClick={handleFinish}>Finish Quiz</button>
         )}
       </div>
     </div>
