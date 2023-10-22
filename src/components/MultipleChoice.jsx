@@ -71,7 +71,7 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
   };
 
   const handleFinish = () => {
-    setFinished(true);
+    <Link to="./results"></Link>
   };
 
   const handlePreviousQuestion = () => {
@@ -99,11 +99,11 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
     return <div>No quiz data available.</div>;
   }
 
-  if (finished) {
-    return (
-      <Link to="./result"></Link>
-    );
-  }
+  // if (finished) {
+  //   return (
+  //     <Link to="./result"></Link>
+  //   );
+  // }
 
   console.log("currentQuestion", currentQuestion)
   console.log("userResponses", userResponses)  
@@ -147,7 +147,9 @@ export default function MultipleChoice({ quiz, userResponses, setUserResponses }
         {currentQuestion < quiz.length - 1 ? (
           <button onClick={handleNextQuestion}>Next</button>
         ) : (
-          <button onClick={handleFinish}>Finish Quiz</button>
+          <Link to="/results">
+            <button>Finish Quiz</button>
+          </Link>
         )}
       </div>
     </div>
