@@ -7,7 +7,7 @@ import MultipleChoice from "../components/MultipleChoice";
 
 // Save the localStorage when you click the next question
 
-export default function Quiz({ m_quiz, quiz, questionType, userResponses, setUserResponses }) {
+export default function Quiz({ m_quiz, quiz, numberOfWord, questionType, userResponses, setUserResponses }) {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [dragChoice, setDragChoice] = useState(null);
 
@@ -39,7 +39,10 @@ export default function Quiz({ m_quiz, quiz, questionType, userResponses, setUse
         setUserResponses ={setUserResponses}
         />
       ) : (
-        <DragAndDrop handleDragOver={handleDragOver} handleOnDrag={handleOnDrag} handleOnDrop={handleOnDrop}/>
+        <DragAndDrop quiz={quiz}
+        userResponses = {userResponses}
+        setUserResponses ={setUserResponses}
+        numberOfWord={numberOfWord}/>
       )}
     </div>
   );
