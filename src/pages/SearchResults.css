@@ -1,0 +1,18 @@
+.searchResults {
+    padding: 50px;
+  }
+  
+  .searchResults__card {
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .searchResults__card__environment {
+    font-style: italic;
+  }
+  
+  .searchResults__card__description {
+    font-size: 1.3em;
+  }
+  
