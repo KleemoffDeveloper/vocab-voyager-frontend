@@ -1,0 +1,19 @@
+.multipleChoice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .previous-next-button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+h1{
+    border-bottom: 2px solid white;
+}
+  
+ul{
+    list-style: none;
+}

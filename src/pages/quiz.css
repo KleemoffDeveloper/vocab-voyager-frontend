@@ -1,11 +1,10 @@
 .quiz {
   margin: 0;
   display: grid;
-  min-height: 100vh;
   grid-auto-flow: row;
   place-items: center;
   gap: 50px;
-  padding-bottom: 25px;;
+  padding: 25px;;
 }
 
 .drag-and-drop {
