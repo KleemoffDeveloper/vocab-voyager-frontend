@@ -1,4 +1,20 @@
 /* SignIn.css */
+.sign-up-container, .sign-in-container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.sign-up-form, .sign-in-form {
+  width: 640px;
+  height: 320px;
+  border: 1px solid white;
+  padding: 15px;
+  border-radius: 16px;
+  display: grid;
+  gap: 25px;
+}
+
 .loader,
 .loader:before,
 .loader:after {
