@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './NavBar.scss'
+import '../styles/NavBar.scss'
 
 
 export default function Navbar() {
@@ -37,8 +37,12 @@ export default function Navbar() {
             <input type="submit" className='navbar-container__searchbox__submit-button' value="Search"/>
         </form>
         <div className='navbar-container__account-buttons'>
-          <button className='navbar-container__account-buttons__login' onClick={(e) => navbarClickHandle(e, '/sign-up') /*TODO: Change function */}>Sign Up</button>
-          <button className='navbar-container__account-buttons__signup' onClick={(e) => navbarClickHandle(e, '/log-in') /*TODO: Change function */}>Log In</button>
+          <button className='navbar-container__account-buttons__login' onClick={(e) => navbarClickHandle(e, '/sign-up') /*TODO: Change function */}>
+            <span class="navbar-container__account-buttons__signup__content">Sign Up</span>
+          </button>
+          <button className='navbar-container__account-buttons__signup' onClick={(e) => navbarClickHandle(e, '/log-in') /*TODO: Change function */}>
+          <span class="navbar-container__account-buttons__login__content">Log In</span>
+          </button>
         </div>
     </div>
   )

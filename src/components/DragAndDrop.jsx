@@ -1,3 +1,5 @@
+import '../styles/quiz.scss'
+
 const definitions = [
     "something something yeah",
     "another definition",
@@ -9,33 +11,33 @@ const definitions = [
 
 export default function DragAndDrop({handleOnDrop, handleDragOver, handleOnDrag}) {
   return (
-    <div className="drag-and-drop">
+    <div className="quiz__drag-and-drop">
       <h1>Drag & drop the words to their matching definitions.</h1>
-      <div className="layout">
-        <div className="banner definitions">
+      <div className="quiz__drag-and-drop__layout">
+        <div className="quiz__drag-and-drop__layout__banner">
           <h2>Definitions</h2>
           <div className="layout">
             {definitions.map((def, i) => (
               <div
                 key={i}
-                className="option"
+                className="quiz__drag-and-drop__layout__option"
                 onDrop={handleOnDrop}
                 onDragOver={handleDragOver}
               >
                 {def}
-                <div className="choice"></div>
+                <div className="quiz__drag-and-drop__layout__choice"></div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="banner words">
+        <div className="quiz__drag-and-drop__layout__banner__words">
           <h2>Words</h2>
-          <div className="layout">
+          <div className="quiz__drag-and-drop__layout__banner__words__layout">
             {words.map((word, i) => (
               <div
                 key={i}
-                className="option"
+                className="quiz__drag-and-drop__layout__option"
                 draggable
                 onDragStart={(e) => handleOnDrag(e, "option")}
               >

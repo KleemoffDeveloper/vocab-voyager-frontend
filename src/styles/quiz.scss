@@ -1,0 +1,86 @@
+.quiz {
+    margin: 0;
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center;
+    gap: 50px;
+    padding: 25px;;
+    &__drag-and-drop {
+      text-align: center;
+      width: 100%;
+      min-height: 320px;
+      /* border: 2px solid black; */
+      display: grid;
+      gap: 25px;
+      grid-auto-flow: row;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      &__layout {
+        width: 100%;
+        display: grid;
+        gap: 55px;
+        grid-auto-flow: column;
+        justify-content: space-evenly;
+      }
+    }
+    
+  }
+
+  
+  .banner {
+    display: grid;
+    place-items: center;
+    grid-template-rows: 10vh 25px 1fr;
+    width: 640px;
+    min-height: 320px;
+    border: 1px solid black;
+    border-radius: 16px;
+    box-shadow: 1px 1px 10px black;
+    overflow: hidden;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .drag-and-drop .banner {
+      grid-template-rows: 10vh 1fr;
+  }
+  
+  .drag-and-drop .banner .layout {
+      display: grid;
+      gap: 15px;
+      grid-auto-flow: row;
+      grid-template-columns: 100%;
+      width: 100%;
+  }
+  
+  .option {
+      user-select: none;
+      cursor: default;
+      margin-left: 4vw;
+      margin-right: 4vw;
+      width: auto;
+      padding: 25px;
+      background-color: whitesmoke;
+      border-radius: 36px;
+  }
+  
+  .words .option {
+      cursor: pointer;
+      background-color: rgb(221, 221, 221);
+  }
+  
+  .definitions .option {
+  
+  }
+  
+  @media screen and (max-width: 1400px) {
+      .drag-and-drop .layout {
+          grid-auto-flow: row;
+      }
+  }
+  
+  @media screen and (max-width: 700px) {
+      .banner {
+          width: 90vw;
+      }
+  }
