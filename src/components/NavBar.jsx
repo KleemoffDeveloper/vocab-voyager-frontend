@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <div className="navbar-container">
       <img
-        src="https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png"
+        src="src/assets/logo.png"
         className="navbar-container__logo"
         onClick={(e) => navbarClickHandle(e, "/")}
         alt="website-logo"
