@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Navbar() {
 
+  const navigate = useNavigate()
   const [searchData, setSearchData] = useState('')
   
 
   function navbarClickHandle(e, location){
     e.preventDefault()
-    window.location.pathname = location
+    navigate(location)
   }
 
   function handleSearch(e){
