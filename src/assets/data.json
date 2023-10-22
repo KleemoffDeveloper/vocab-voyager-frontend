@@ -301,12 +301,6 @@
       "environment": "full stack"
     },
     {
-      "term": "IDE",
-      "description": "Integrated Development Environment for writing and testing code.",
-      "difficulty": 2,
-      "environment": "full stack"
-    },
-    {
       "term": "Algorithm",
       "description": "A step-by-step procedure or set of rules for solving a problem.",
       "difficulty": 2,

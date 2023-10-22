@@ -4,14 +4,16 @@ import { signOut } from "firebase/auth";
 import { auth } from "./Firebase";
 
 import "./NavBar.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [searchData, setSearchData] = useState("");
   const { authUser } = useAuth();
 
   function navbarClickHandle(e, location) {
     e.preventDefault();
-    window.location.pathname = location;
+    navigate(location);
   }
 
   function handleSearch(e) {
