@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const navigate = useNavigate()
   const [searchData, setSearchData] = useState('')
-  
+  const [searchChange, setSearchChange] = useState('')
 
   function navbarClickHandle(e, location){
     e.preventDefault()
@@ -16,8 +16,9 @@ export default function Navbar() {
 
   function handleSearch(e){
     e.preventDefault()
-    console.log(searchData)
+    navigate(`searchResults/?term=${searchData}`)
   }
+
 
   return (
     <div className="navbar-container">

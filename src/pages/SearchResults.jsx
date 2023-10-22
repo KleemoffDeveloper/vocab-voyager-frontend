@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import data from '../assets/data.json'
+import { useParams } from 'react-router-dom'
+import '../pages/SearchResults.scss'
 
 export default function SearchResults() {
-    
-    function displayResults(){
+
+    const term = window.location.search.slice(6)
+
+    function displayResults(word){
         let allTerms = data.terms
-        return allTerms.map((x) => {
+        let arr =  allTerms.map((x) => {
+            let allWords = x.description.split(' ')
+            let descriptionWordFound = false;
+            allWords.forEach(p =>{
+                console.log(p)
+                if(p.toLowerCase() === x.term.toLowerCase()){
+                    descriptionWordFound = true;
+                }
+            })
+            if(x.term.toLowerCase() !== word.toLowerCase() && !descriptionWordFound){
+                return '';
+            }
             let difficulty
             if(x.difficulty === 1){
                 difficulty = 'Easy'
@@ -23,11 +38,13 @@ export default function SearchResults() {
                 </div>
             )
         })
+
+        return arr
     }
 
   return (
     <div className='searchResults'>
-        {displayResults()}
+        {displayResults(term)}
     </div>
   )
 }
