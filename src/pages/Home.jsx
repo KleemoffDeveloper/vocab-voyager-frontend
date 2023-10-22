@@ -13,8 +13,7 @@ function Home({ setQuiz }) {
 
   const handleChoicedtype = (value) => {
     setTestType(value);
-  };
-
+  }
   return (
     <div className="home">
       <h2>Quiz Type</h2>
@@ -122,7 +121,6 @@ function Home({ setQuiz }) {
               );
             }
             setQuiz({ type: testType, terms: arr });
-            console.log(arr);
           }}
         >
           Start Quiz

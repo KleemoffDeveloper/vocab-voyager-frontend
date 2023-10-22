@@ -4,7 +4,8 @@ import DragAndDrop from "../components/DragAndDrop";
 import MultipleChoice from "../components/MultipleChoice";
 import { Link, Navigate } from "react-router-dom";
 
-export default function Quiz({ quiz }) {
+export default function Quiz({ quiz, questionType, userResponses, setUserResponses }) {
+  const [currentQuestion, setCurrentQuestion] = useState(null);
   const [question, setQuestion] = useState();
 
   useEffect(() => {
@@ -13,25 +14,14 @@ export default function Quiz({ quiz }) {
     }
   }, []);
 
-  function next() {
-    let index = quiz.terms.indexOf(question);
-    if (index < quiz.terms.length - 1) {
-      setQuestion(quiz.terms[index + 1]);
-    }
-  }
-
-  function previous() {
-    let index = quiz.terms.indexOf(question);
-    if (index > 0) {
-      setQuestion(quiz.terms[index - 1]);
-    }
-  }
-
   return (
     <div className="quiz">
       {quiz ? (
         quiz.type === "multipleChoice" ? (
-          <MultipleChoice />
+                  <MultipleChoice quiz={quiz}
+        userResponses = {userResponses}
+        setUserResponses ={setUserResponses}
+        />
         ) : quiz.type === "dragAndDrop" ? (
           <DragAndDrop terms={quiz.terms} />
         ) : (
