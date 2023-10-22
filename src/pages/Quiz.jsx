@@ -2,42 +2,48 @@ import { useEffect, useState } from "react";
 import "./quiz.css";
 import DragAndDrop from "../components/DragAndDrop";
 import MultipleChoice from "../components/MultipleChoice";
+import { Link, Navigate } from "react-router-dom";
 
-// this can either be multiple choice or drag and drop
-
-// Save the localStorage when you click the next question
-
-export default function Quiz({ m_quiz }) {
-  const [currentQuestion, setCurrentQuestion] = useState(null);
-  const [questionType, setQuestionType] = useState("drag-drop"); // 'multiple-choice' || 'drag-drop'
-  const [dragChoice, setDragChoice] = useState(null);
-
-  const [widgets, setWidgets] = useState([]);
+export default function Quiz({ quiz }) {
+  const [question, setQuestion] = useState();
 
   useEffect(() => {
-    m_quiz();
+    if (quiz) {
+      setQuestion(quiz.terms[0]);
+    }
   }, []);
 
-  function handleOnDrag(e, widgetType) {
-    e.dataTransfer.setData("widgetType", widgetType);
+  function next() {
+    let index = quiz.terms.indexOf(question);
+    if (index < quiz.terms.length - 1) {
+      setQuestion(quiz.terms[index + 1]);
+    }
   }
 
-  function handleOnDrop(e) {
-    const widgetType = e.dataTransfer.getData("widgetType");
-    console.log(widgets);
-    setWidgets([...widgets, widgetType]);
-  }
-
-  function handleDragOver(e) {
-    e.preventDefault();
+  function previous() {
+    let index = quiz.terms.indexOf(question);
+    if (index > 0) {
+      setQuestion(quiz.terms[index - 1]);
+    }
   }
 
   return (
     <div className="quiz">
-      {questionType === "multiple-choice" ? (
-        <MultipleChoice />
+      {quiz ? (
+        quiz.type === "multipleChoice" ? (
+          <MultipleChoice />
+        ) : quiz.type === "dragAndDrop" ? (
+          <DragAndDrop terms={quiz.terms} />
+        ) : (
+          <div>
+            <h1>Sorry, nothing to show here...</h1>
+            <Link to={"/"}>
+              <button>Back to home page</button>
+            </Link>
+          </div>
+        )
       ) : (
-        <DragAndDrop handleDragOver={handleDragOver} handleOnDrag={handleOnDrag} handleOnDrop={handleOnDrop}/>
+        <Navigate to={"/"} />
       )}
     </div>
   );
