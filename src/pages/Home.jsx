@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import data from "../assets/data.json";
 
-function Home({ setQuiz }) {
+function Home({ setQuestionType, setNumberOfWord, setQuiz }) {
   const [testType, setTestType] = useState("");
   const [numberOfWord, setNumberOfWord] = useState();
 
@@ -129,5 +129,3 @@ function Home({ setQuiz }) {
     </div>
   );
 }
-
-export default Home;
