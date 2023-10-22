@@ -71,7 +71,7 @@ function App() {
               userResponses={userResponses}
               setUserResponses={setUserResponses}
               />} />
-            <Route path="/results" element={<Result/>} />
+            <Route path="/results" element={<Result userResponses={userResponses}/>} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/log-in" element={<SignIn />} />
           </Routes>
