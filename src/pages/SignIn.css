@@ -13,6 +13,19 @@
   border-radius: 16px;
   display: grid;
   gap: 25px;
+  background-color: #0077B6;
+  box-shadow: 1px 1px 10px black;
+}
+
+.sign-up-form button, .sign-in-form button {
+  margin: 0;
+}
+
+input[type=email], input[type=password] {
+  border: none;
+  border-radius: 16px;
+  padding: 5px;
+  box-shadow: 1px 1px 3px black;
 }
 
 .loader,

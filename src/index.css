@@ -26,11 +26,11 @@ a:hover {
 body {
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
-  /* display: flex; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #020587;
+  background: linear-gradient(to bottom, #020587, #0077B6);
+  background-repeat: no-repeat;
   color: white;
 }
 
